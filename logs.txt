@@ -1,0 +1,240 @@
+
+============================================================
+2026-02-05 17:36:20,559 - INFO - TEST EXECUTION #1
+2026-02-05 17:36:20,559 - INFO - ============================================================
+2026-02-05 17:36:20,559 - INFO - === Starting Brave Search Test Suite ===
+2026-02-05 17:36:20,559 - INFO - Setting up Brave browser
+2026-02-05 17:36:23,563 - INFO - Browser launched and maximized successfully
+2026-02-05 17:36:23,564 - INFO - Test 1: Navigate to Brave Search
+2026-02-05 17:36:24,779 - INFO - Navigated to URL: https://search.brave.com/
+2026-02-05 17:36:24,835 - INFO - ✓ Test 1 PASSED: Navigation successful
+2026-02-05 17:36:24,835 - INFO - Test 2: Validate search box exists
+2026-02-05 17:36:25,259 - INFO - ✓ Test 2 PASSED: Search box found
+2026-02-05 17:36:25,259 - INFO - Test 3: Validate search box is interactable
+2026-02-05 17:36:25,904 - INFO - ✓ Successfully entered text in search box
+2026-02-05 17:36:25,922 - INFO - ✓ Test 3 PASSED: Verified text entered - upwork login
+2026-02-05 17:36:25,923 - INFO - Test 4: Validate search button exists
+2026-02-05 17:36:26,333 - INFO - ✓ Test 4 PASSED: Search button found
+2026-02-05 17:36:26,333 - INFO - Test 5: Complete search flow execution
+2026-02-05 17:36:26,671 - INFO - Step 1: Navigated to Brave Search
+2026-02-05 17:36:27,181 - INFO - Step 2: Search box located
+2026-02-05 17:36:27,935 - INFO - Step 3: Entered search query 'upwork login'
+2026-02-05 17:36:27,972 - INFO - Step 4: Search button located
+2026-02-05 17:36:28,916 - INFO - Step 5: Clicked search button
+2026-02-05 17:36:29,009 - INFO - Step 6: URL changed to: https://search.brave.com/ask?q=upwork+login&source=llmSuggest
+2026-02-05 17:36:29,014 - INFO - ✓ Test 5 PASSED: Complete search flow executed successfully
+2026-02-05 17:36:29,014 - INFO - === Test Suite Complete: 5/5 tests passed ===
+2026-02-05 17:36:29,014 - INFO - Closing browser
+2026-02-05 17:36:29,274 - INFO - Browser closed successfully
+2026-02-05 17:37:31,959 - INFO - 
+============================================================
+2026-02-05 17:37:31,959 - INFO - TEST EXECUTION #2
+2026-02-05 17:37:31,959 - INFO - ============================================================
+2026-02-05 17:37:31,959 - INFO - === Starting Brave Search Test Suite ===
+2026-02-05 17:37:31,959 - INFO - Setting up Brave browser
+2026-02-05 17:37:34,185 - INFO - Browser launched and maximized successfully
+2026-02-05 17:37:34,185 - INFO - Test 1: Navigate to Brave Search
+2026-02-05 17:37:35,220 - INFO - Navigated to URL: https://search.brave.com/
+2026-02-05 17:37:35,273 - INFO - ✓ Test 1 PASSED: Navigation successful
+2026-02-05 17:37:35,274 - INFO - Test 2: Validate search box exists
+2026-02-05 17:37:35,684 - INFO - ✓ Test 2 PASSED: Search box found
+2026-02-05 17:37:35,684 - INFO - Test 3: Validate search box is interactable
+2026-02-05 17:37:36,512 - INFO - ✓ Successfully entered text in search box
+2026-02-05 17:37:36,526 - INFO - ✓ Test 3 PASSED: Verified text entered - upwork login
+2026-02-05 17:37:36,527 - INFO - Test 4: Validate search button exists
+2026-02-05 17:37:36,828 - INFO - ✓ Test 4 PASSED: Search button found
+2026-02-05 17:37:36,828 - INFO - Test 5: Complete search flow execution
+2026-02-05 17:37:37,259 - INFO - Step 1: Navigated to Brave Search
+2026-02-05 17:37:37,294 - INFO - Step 2: Search box located
+2026-02-05 17:37:37,444 - INFO - Step 3: Entered search query 'upwork login'
+2026-02-05 17:37:37,496 - INFO - Step 4: Search button located
+2026-02-05 17:37:38,167 - INFO - Step 5: Clicked search button
+2026-02-05 17:37:38,234 - INFO - Step 6: URL changed to: https://search.brave.com/ask?q=upwork+login&source=llmSuggest
+2026-02-05 17:37:38,243 - INFO - ✓ Test 5 PASSED: Complete search flow executed successfully
+2026-02-05 17:37:38,243 - INFO - === Test Suite Complete: 5/5 tests passed ===
+2026-02-05 17:37:38,244 - INFO - Closing browser
+2026-02-05 17:37:38,558 - INFO - Browser closed successfully
+2026-02-05 17:39:03,766 - INFO - 
+============================================================
+2026-02-05 17:39:03,766 - INFO - TEST EXECUTION #1
+2026-02-05 17:39:03,766 - INFO - ============================================================
+2026-02-05 17:39:03,766 - INFO - === Starting Brave Search Test Suite ===
+2026-02-05 17:39:03,766 - INFO - Setting up Brave browser
+2026-02-05 17:39:06,028 - INFO - Browser launched and maximized successfully
+2026-02-05 17:39:06,028 - INFO - Test 1: Navigate to Brave Search
+2026-02-05 17:39:07,158 - INFO - Navigated to URL: https://search.brave.com/
+2026-02-05 17:39:07,258 - INFO - ✓ Test 1 PASSED: Navigation successful
+2026-02-05 17:39:07,259 - INFO - Test 2: Validate search box exists
+2026-02-05 17:39:07,682 - INFO - ✓ Test 2 PASSED: Search box found
+2026-02-05 17:39:07,682 - INFO - Test 3: Validate search box is interactable
+2026-02-05 17:39:08,218 - INFO - ✓ Successfully entered text in search box
+2026-02-05 17:39:08,240 - INFO - ✓ Test 3 PASSED: Verified text entered - upwork login
+2026-02-05 17:39:08,240 - INFO - Test 4: Validate search button exists
+2026-02-05 17:39:08,684 - INFO - ✓ Test 4 PASSED: Search button found
+2026-02-05 17:39:08,684 - INFO - Test 5: Complete search flow execution
+2026-02-05 17:39:08,945 - INFO - Step 1: Navigated to Brave Search
+2026-02-05 17:39:08,998 - INFO - Step 2: Search box located
+2026-02-05 17:39:09,110 - INFO - Step 3: Entered search query 'upwork login'
+2026-02-05 17:39:09,169 - INFO - Step 4: Search button located
+2026-02-05 17:39:09,919 - INFO - Step 5: Clicked search button
+2026-02-05 17:39:09,949 - INFO - Step 6: URL changed to: https://search.brave.com/ask?q=upwork+login&source=llmSuggest
+2026-02-05 17:39:09,957 - INFO - ✓ Test 5 PASSED: Complete search flow executed successfully
+2026-02-05 17:39:09,957 - INFO - === Test Suite Complete: 5/5 tests passed ===
+2026-02-05 17:39:09,957 - INFO - Closing browser
+2026-02-05 17:39:10,280 - INFO - Browser closed successfully
+2026-02-05 17:40:19,686 - INFO - 
+============================================================
+2026-02-05 17:40:19,686 - INFO - TEST EXECUTION #4
+2026-02-05 17:40:19,686 - INFO - ============================================================
+2026-02-05 17:40:19,686 - INFO - === Starting Brave Search Test Suite ===
+2026-02-05 17:40:19,687 - INFO - Setting up Brave browser
+2026-02-05 17:40:21,860 - INFO - Browser launched and maximized successfully
+2026-02-05 17:40:21,860 - INFO - Test 1: Navigate to Brave Search
+2026-02-05 17:40:23,103 - INFO - Navigated to URL: https://search.brave.com/
+2026-02-05 17:40:23,193 - INFO - ✓ Test 1 PASSED: Navigation successful
+2026-02-05 17:40:23,193 - INFO - Test 2: Validate search box exists
+2026-02-05 17:40:23,587 - INFO - ✓ Test 2 PASSED: Search box found
+2026-02-05 17:40:23,587 - INFO - Test 3: Validate search box is interactable
+2026-02-05 17:40:24,182 - INFO - ✓ Successfully entered text in search box
+2026-02-05 17:40:24,194 - INFO - ✓ Test 3 PASSED: Verified text entered - upwork login
+2026-02-05 17:40:24,194 - INFO - Test 4: Validate search button exists
+2026-02-05 17:40:24,433 - INFO - ✓ Test 4 PASSED: Search button found
+2026-02-05 17:40:24,434 - INFO - Test 5: Complete search flow execution
+2026-02-05 17:40:24,773 - INFO - Step 1: Navigated to Brave Search
+2026-02-05 17:40:24,805 - INFO - Step 2: Search box located
+2026-02-05 17:40:24,896 - INFO - Step 3: Entered search query 'upwork login'
+2026-02-05 17:40:24,927 - INFO - Step 4: Search button located
+2026-02-05 17:40:25,764 - INFO - Step 5: Clicked search button
+2026-02-05 17:40:25,778 - INFO - Step 6: URL changed to: https://search.brave.com/ask?q=upwork+login&source=llmSuggest
+2026-02-05 17:40:25,784 - INFO - ✓ Test 5 PASSED: Complete search flow executed successfully
+2026-02-05 17:40:25,784 - INFO - === Test Suite Complete: 5/5 tests passed ===
+2026-02-05 17:40:25,784 - INFO - Closing browser
+2026-02-05 17:40:26,203 - INFO - Browser closed successfully
+2026-02-05 17:42:04,271 - INFO - 
+============================================================
+2026-02-05 17:42:04,271 - INFO - 
+
+
+
+TEST EXECUTION #5
+2026-02-05 17:42:04,271 - INFO - ============================================================
+2026-02-05 17:42:04,271 - INFO - === Starting Brave Search Test Suite ===
+2026-02-05 17:42:04,271 - INFO - Setting up Brave browser
+2026-02-05 17:42:06,573 - INFO - Browser launched and maximized successfully
+2026-02-05 17:42:06,574 - INFO - Test 1: Navigate to Brave Search
+2026-02-05 17:42:07,761 - INFO - Navigated to URL: https://search.brave.com/
+2026-02-05 17:42:07,775 - INFO - ✓ Test 1 PASSED: Navigation successful
+2026-02-05 17:42:07,775 - INFO - Test 2: Validate search box exists
+2026-02-05 17:42:08,220 - INFO - ✓ Test 2 PASSED: Search box found
+2026-02-05 17:42:08,220 - INFO - Test 3: Validate search box is interactable
+2026-02-05 17:42:09,154 - INFO - ✓ Successfully entered text in search box
+2026-02-05 17:42:09,163 - INFO - ✓ Test 3 PASSED: Verified text entered - upwork login
+2026-02-05 17:42:09,163 - INFO - Test 4: Validate search button exists
+2026-02-05 17:42:09,625 - INFO - ✓ Test 4 PASSED: Search button found
+2026-02-05 17:42:09,625 - INFO - Test 5: Complete search flow execution
+2026-02-05 17:42:09,838 - INFO - Step 1: Navigated to Brave Search
+2026-02-05 17:42:09,897 - INFO - Step 2: Search box located
+2026-02-05 17:42:09,982 - INFO - Step 3: Entered search query 'upwork login'
+2026-02-05 17:42:10,021 - INFO - Step 4: Search button located
+2026-02-05 17:42:10,919 - INFO - Step 5: Clicked search button
+2026-02-05 17:42:10,951 - INFO - Step 6: URL changed to: https://search.brave.com/ask?q=upwork+login&source=llmSuggest
+2026-02-05 17:42:10,961 - INFO - ✓ Test 5 PASSED: Complete search flow executed successfully
+2026-02-05 17:42:10,962 - INFO - === Test Suite Complete: 5/5 tests passed ===
+2026-02-05 17:42:10,962 - INFO - Closing browser
+2026-02-05 17:42:11,292 - INFO - Browser closed successfully
+2026-02-05 17:43:05,817 - INFO - 
+
+
+
+
+============================================================
+2026-02-05 17:43:05,818 - INFO - TEST EXECUTION #6
+2026-02-05 17:43:05,818 - INFO - ============================================================
+2026-02-05 17:43:05,818 - INFO - === Starting Brave Search Test Suite ===
+2026-02-05 17:43:05,818 - INFO - Setting up Brave browser
+2026-02-05 17:43:08,171 - INFO - Browser launched and maximized successfully
+2026-02-05 17:43:08,171 - INFO - Test 1: Navigate to Brave Search
+2026-02-05 17:43:09,097 - INFO - Navigated to URL: https://search.brave.com/
+2026-02-05 17:43:09,129 - INFO - ✓ Test 1 PASSED: Navigation successful
+2026-02-05 17:43:09,130 - INFO - Test 2: Validate search box exists
+2026-02-05 17:43:09,618 - INFO - ✓ Test 2 PASSED: Search box found
+2026-02-05 17:43:09,618 - INFO - Test 3: Validate search box is interactable
+2026-02-05 17:43:10,182 - INFO - ✓ Successfully entered text in search box
+2026-02-05 17:43:10,202 - INFO - ✓ Test 3 PASSED: Verified text entered - upwork login
+2026-02-05 17:43:10,202 - INFO - Test 4: Validate search button exists
+2026-02-05 17:43:10,717 - INFO - ✓ Test 4 PASSED: Search button found
+2026-02-05 17:43:10,720 - INFO - Test 5: Complete search flow execution
+2026-02-05 17:43:11,014 - INFO - Step 1: Navigated to Brave Search
+2026-02-05 17:43:11,049 - INFO - Step 2: Search box located
+2026-02-05 17:43:11,171 - INFO - Step 3: Entered search query 'upwork login'
+2026-02-05 17:43:11,206 - INFO - Step 4: Search button located
+2026-02-05 17:43:11,974 - INFO - Step 5: Clicked search button
+2026-02-05 17:43:12,005 - INFO - Step 6: URL changed to: https://search.brave.com/ask?q=upwork+login&source=llmSuggest
+2026-02-05 17:43:12,016 - INFO - ✓ Test 5 PASSED: Complete search flow executed successfully
+2026-02-05 17:43:12,016 - INFO - === Test Suite Complete: 5/5 tests passed ===
+2026-02-05 17:43:12,016 - INFO - Closing browser
+2026-02-05 17:43:12,396 - INFO - Browser closed successfully
+2026-02-05 18:26:14,950 - INFO - 
+
+
+
+
+============================================================
+2026-02-05 18:26:14,950 - INFO - TEST EXECUTION #7
+2026-02-05 18:26:14,950 - INFO - ============================================================
+2026-02-05 18:26:14,950 - INFO - === Starting Brave Search Test Suite ===
+2026-02-05 18:26:14,950 - INFO - Setting up Brave browser
+2026-02-05 18:26:20,206 - INFO - Browser launched and maximized successfully
+2026-02-05 18:26:20,207 - INFO - Test 1: Navigate to Brave Search
+2026-02-05 18:26:21,984 - INFO - Navigated to URL: https://search.brave.com/
+2026-02-05 18:26:22,020 - INFO - ✓ Test 1 PASSED: Navigation successful
+2026-02-05 18:26:22,020 - INFO - Test 2: Validate search box exists
+2026-02-05 18:26:22,832 - INFO - ✓ Test 2 PASSED: Search box found
+2026-02-05 18:26:22,832 - INFO - Test 3: Validate search box is interactable
+2026-02-05 18:26:23,898 - INFO - ✓ Successfully entered text in search box
+2026-02-05 18:26:23,924 - INFO - ✓ Test 3 PASSED: Verified text entered - upwork login
+2026-02-05 18:26:23,924 - INFO - Test 4: Validate search button exists
+2026-02-05 18:26:24,301 - INFO - ✓ Test 4 PASSED: Search button found
+2026-02-05 18:26:24,301 - INFO - Test 5: Complete search flow execution
+2026-02-05 18:26:24,493 - INFO - Step 1: Navigated to Brave Search
+2026-02-05 18:26:24,631 - INFO - Step 2: Search box located
+2026-02-05 18:26:24,828 - INFO - Step 3: Entered search query 'upwork login'
+2026-02-05 18:26:24,918 - INFO - Step 4: Search button located
+2026-02-05 18:26:26,362 - INFO - Step 5: Clicked search button
+2026-02-05 18:26:26,394 - INFO - Step 6: URL changed to: https://search.brave.com/ask?q=upwork+login&source=llmSuggest
+2026-02-05 18:26:26,401 - INFO - ✓ Test 5 PASSED: Complete search flow executed successfully
+2026-02-05 18:26:26,402 - INFO - === Test Suite Complete: 5/5 tests passed ===
+2026-02-05 18:26:26,403 - INFO - Closing browser
+2026-02-05 18:26:26,791 - INFO - Browser closed successfully
+2026-02-05 20:25:28,386 - INFO - 
+
+
+
+
+============================================================
+2026-02-05 20:25:28,386 - INFO - TEST EXECUTION #8
+2026-02-05 20:25:28,387 - INFO - ============================================================
+2026-02-05 20:25:28,387 - INFO - === Starting Brave Search Test Suite ===
+2026-02-05 20:25:28,387 - INFO - Setting up Brave browser
+2026-02-05 20:25:34,003 - INFO - Browser launched and maximized successfully
+2026-02-05 20:25:34,003 - INFO - Test 1: Navigate to Brave Search
+2026-02-05 20:25:37,971 - INFO - Navigated to URL: https://search.brave.com/
+2026-02-05 20:25:38,119 - INFO - ✓ Test 1 PASSED: Navigation successful
+2026-02-05 20:25:38,125 - INFO - Test 2: Validate search box exists
+2026-02-05 20:25:38,814 - INFO - ✓ Test 2 PASSED: Search box found
+2026-02-05 20:25:38,814 - INFO - Test 3: Validate search box is interactable
+2026-02-05 20:25:39,819 - INFO - ✓ Successfully entered text in search box
+2026-02-05 20:25:39,848 - INFO - ✓ Test 3 PASSED: Verified text entered - upwork login
+2026-02-05 20:25:39,848 - INFO - Test 4: Validate search button exists
+2026-02-05 20:25:40,182 - INFO - ✓ Test 4 PASSED: Search button found
+2026-02-05 20:25:40,184 - INFO - Test 5: Complete search flow execution
+2026-02-05 20:25:40,486 - INFO - Step 1: Navigated to Brave Search
+2026-02-05 20:25:40,534 - INFO - Step 2: Search box located
+2026-02-05 20:25:40,669 - INFO - Step 3: Entered search query 'upwork login'
+2026-02-05 20:25:40,774 - INFO - Step 4: Search button located
+2026-02-05 20:25:41,804 - INFO - Step 5: Clicked search button
+2026-02-05 20:25:41,952 - INFO - Step 6: URL changed to: https://search.brave.com/ask?q=upwork+login&source=llmSuggest
+2026-02-05 20:25:41,961 - INFO - ✓ Test 5 PASSED: Complete search flow executed successfully
+2026-02-05 20:25:41,962 - INFO - === Test Suite Complete: 5/5 tests passed ===
+2026-02-05 20:25:41,962 - INFO - Closing browser
+2026-02-05 20:25:42,291 - INFO - Browser closed successfully

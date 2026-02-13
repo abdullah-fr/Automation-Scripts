@@ -90,10 +90,25 @@ mvn test -f java-tests/pom.xml
 - Java 11+
 - Maven 3.6+
 
-## 📖 Documentation
+## 📖 Test Reports
 
-- [Python Tests Guide](python-tests/README.md)
-- [Java Tests Guide](java-tests/README.md)
+Python tests generate beautiful HTML reports:
+
+```bash
+# Generate visual test report
+python3 python-tests/generate_report.py
+```
+
+The report includes:
+- Visual summary with statistics
+- Detailed test results
+- Execution time and environment info
+- Color-coded pass/fail status
+- Professional gradient design
+
+View the report: `python-tests/test-report.html`
+
+## 🔧 Requirements
 
 ## 🎯 Which Framework to Use?
 

@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.pytest_cache/
+*.log
+
+# IDE
+.vscode/
+.idea/
+
+# Java
+target/
+*.class
+*.jar
+*.war
+.idea/
+*.iml
+.settings/
+.classpath
+.project
+
+# TestNG
+test-output/
+
+# Logs
+logs.txt
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+*.swp
+*.swo

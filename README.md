@@ -125,34 +125,45 @@ mvn test -f java-tests/pom.xml
 ## 🎓 Learning Resources
 
 ### Functional Testing Demo
-A complete login/signup application with automated tests:
+A complete login/signup application with automated tests including smoke and regression testing:
 
 ```bash
 # Terminal 1: Start the demo app
 cd functional-testing
 python3 demo_app.py
 
-# Terminal 2: Run tests with HTML report
+# Terminal 2: Run all tests (smoke + regression)
 cd functional-testing
-python3 test_demo_app.py
+python3 run_all_tests.py
 
-# View report
-open demo_app_test_report.html
+# Or run individually:
+python3 test_smoke.py        # Quick sanity checks (5 tests)
+python3 test_regression.py   # Comprehensive tests (15 tests, parallel)
+python3 test_demo_app.py     # Original test suite (14 tests)
 ```
 
 **Features:**
 - Flask-based web application
-- 14 comprehensive test cases
-- HTML test reports
-- Login/Signup validation
-- Professional test structure
+- Smoke Testing: 5 critical path tests
+- Regression Testing: 15 comprehensive tests with parallel execution
+- HTML test reports for all suites
+- Professional test structure with explicit waits
+
+**Test Strategy:**
+1. **Smoke Tests** (test_smoke.py): Quick sanity checks to verify critical functionality
+   - App is running
+   - Login/Signup pages load
+   - Valid login works
+   - Navigation works
+
+2. **Regression Tests** (test_regression.py): Comprehensive tests with pytest markers
+   - 6 Login tests (@pytest.mark.login)
+   - 6 Signup tests (@pytest.mark.signup)
+   - 3 Navigation tests (@pytest.mark.navigation)
+   - Parallel execution with 4 workers (pytest-xdist)
+   - Headless mode for speed
+
+3. **Master Runner** (run_all_tests.py): Runs smoke first, then regression if smoke passes
 
 **Why this approach?**
-Testing systems you control provides reliable, reproducible results. This is how professional QA engineers work - not by automating production sites like Facebook, but by testing controlled environments.
-
-**Test Coverage:**
-- 6 Login tests (valid/invalid credentials, empty fields)
-- 6 Signup tests (validation, password strength, duplicates)
-- 2 Navigation tests
-
-All tests generate detailed HTML reports for documentation.
+Testing systems you control provides reliable, reproducible results. This is how professional QA engineers work - not by automating production sites, but by testing controlled environments with proper test strategies.

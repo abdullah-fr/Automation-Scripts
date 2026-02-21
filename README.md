@@ -119,3 +119,23 @@ mvn test -f java-tests/pom.xml
 - Explicit waits are used (10 seconds timeout)
 - Tests run sequentially by default
 - For parallel execution: `pytest -n 4` (Python) or configure TestNG (Java)
+
+## 🎓 Learning Resources
+
+### Demo Login/Signup App
+We've included a proper demo application to practice automation:
+
+```bash
+# Install Flask
+pip install flask
+
+# Run demo app
+python demo_app.py
+
+# Run tests (in another terminal)
+python test_demo_app.py
+```
+
+See [AUTOMATION_REALITY_CHECK.md](AUTOMATION_REALITY_CHECK.md) for why testing controlled environments is the professional approach.
+
+**Key Lesson:** Test systems you control, not production sites like Facebook. Our demo app provides 15 reliable, reproducible test cases.

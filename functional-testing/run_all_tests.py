@@ -52,9 +52,9 @@ def run_regression_tests():
 def run_all_tests():
     """Run all tests (smoke + regression) in one go"""
     print("\n" + "="*70)
-    print("🚀 RUNNING ALL TESTS (SMOKE + REGRESSION)")
+    print("🚀 RUNNING ALL TESTS (SMOKE + REGRESSION + DATA-DRIVEN)")
     print("="*70)
-    print("Running 20 tests with parallel execution...")
+    print("Running 57+ tests with parallel execution...")
     print("="*70 + "\n")
 
     result = subprocess.run([
@@ -80,11 +80,11 @@ def main():
         print("📊 FINAL RESULTS")
         print("="*70)
         if result == 0:
-            print("✅ ALL TESTS PASSED! (5 Smoke + 15 Regression)")
+            print("✅ ALL TESTS PASSED! (5 Smoke + 15 Regression + 37 Data-Driven)")
         else:
             print("❌ SOME TESTS FAILED")
         print("="*70)
-        print("\n📄 Test Report: demo_app_test_report.html")
+        print("\n📄 Enhanced HTML Test Report: demo_app_test_report.html")
         print("="*70 + "\n")
         sys.exit(result)
 
@@ -122,7 +122,7 @@ def main():
 
     if regression_result == 0:
         print("✅ Smoke Tests: PASSED (5 tests)")
-        print("✅ Regression Tests: PASSED (15 tests)")
+        print("✅ Regression Tests: PASSED (52+ tests)")
         print("\n🎉 ALL TESTS PASSED! Application is stable.")
     else:
         print("✅ Smoke Tests: PASSED (5 tests)")
@@ -130,7 +130,7 @@ def main():
         print("\n⚠️  Some regression tests failed. Check report for details.")
 
     print("="*70)
-    print("\n📄 Test Report: demo_app_test_report.html")
+    print("\n📄 Enhanced HTML Test Report: demo_app_test_report.html")
     print("="*70 + "\n")
 
     sys.exit(regression_result)

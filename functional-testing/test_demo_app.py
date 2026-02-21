@@ -522,19 +522,18 @@ def test_dashboard_accessible_after_login(driver):
     assert "Welcome" in driver.page_source
 
 
-# Run all tests with HTML report
-# Smoke tests run first, then regression tests in parallel
+# Run all tests with Enhanced HTML report
 if __name__ == "__main__":
     print("\n" + "="*70)
     print("🚀 COMPREHENSIVE TEST SUITE")
     print("="*70)
-    print("Running Smoke Tests + Regression Tests (parallel)")
+    print("Running Smoke Tests + Regression Tests + Data-Driven Tests")
     print("="*70 + "\n")
 
     pytest.main([
         __file__,
         "-v",
-        "-n", "4",  # Run regression tests in parallel with 4 workers
+        "-n", "4",  # Run tests in parallel with 4 workers
         "--html=demo_app_test_report.html",
         "--self-contained-html"
     ])

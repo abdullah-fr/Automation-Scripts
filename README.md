@@ -125,45 +125,54 @@ mvn test -f java-tests/pom.xml
 ## 🎓 Learning Resources
 
 ### Functional Testing Demo
-A complete login/signup application with automated tests including smoke and regression testing:
+A complete login/signup application with comprehensive test suite including smoke and regression testing:
 
 ```bash
 # Terminal 1: Start the demo app
 cd functional-testing
 python3 demo_app.py
 
-# Terminal 2: Run all tests (smoke + regression)
+# Terminal 2: Run all tests (smoke + regression in parallel)
 cd functional-testing
-python3 run_all_tests.py
+python3 test_demo_app.py
 
-# Or run individually:
-python3 test_smoke.py        # Quick sanity checks (5 tests)
-python3 test_regression.py   # Comprehensive tests (15 tests, parallel)
-python3 test_demo_app.py     # Original test suite (14 tests)
+# Or use the master runner:
+python3 run_all_tests.py          # Runs smoke first, then regression
+python3 run_all_tests.py --all    # Runs all tests at once
+
+# Run specific test types:
+pytest test_demo_app.py -m smoke       # Only smoke tests (5 tests)
+pytest test_demo_app.py -m regression  # Only regression tests (15 tests)
+pytest test_demo_app.py -m login       # Only login tests
+pytest test_demo_app.py -m signup      # Only signup tests
 ```
 
 **Features:**
 - Flask-based web application
+- 20 comprehensive tests in one file (test_demo_app.py)
 - Smoke Testing: 5 critical path tests
 - Regression Testing: 15 comprehensive tests with parallel execution
-- HTML test reports for all suites
-- Professional test structure with explicit waits
+- Single unified HTML report (demo_app_test_report.html)
+- Professional test structure with explicit waits and pytest markers
 
-**Test Strategy:**
-1. **Smoke Tests** (test_smoke.py): Quick sanity checks to verify critical functionality
+**Test Organization:**
+1. **Smoke Tests** (@pytest.mark.smoke): Quick sanity checks
    - App is running
    - Login/Signup pages load
    - Valid login works
    - Navigation works
 
-2. **Regression Tests** (test_regression.py): Comprehensive tests with pytest markers
+2. **Regression Tests** (@pytest.mark.regression): Comprehensive coverage
    - 6 Login tests (@pytest.mark.login)
    - 6 Signup tests (@pytest.mark.signup)
    - 3 Navigation tests (@pytest.mark.navigation)
+   - Validation tests (@pytest.mark.validation)
    - Parallel execution with 4 workers (pytest-xdist)
    - Headless mode for speed
 
-3. **Master Runner** (run_all_tests.py): Runs smoke first, then regression if smoke passes
+3. **Master Runner** (run_all_tests.py): Flexible execution strategies
+   - Default: Runs smoke first, then regression if smoke passes
+   - --all flag: Runs all tests at once with parallel execution
 
 **Why this approach?**
-Testing systems you control provides reliable, reproducible results. This is how professional QA engineers work - not by automating production sites, but by testing controlled environments with proper test strategies.
+Testing systems you control provides reliable, reproducible results. This is how professional QA engineers work - not by automating production sites, but by testing controlled environments with proper test strategies and markers for flexible execution.

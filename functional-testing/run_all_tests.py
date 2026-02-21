@@ -1,6 +1,7 @@
 """
 Master Test Runner
 Runs smoke tests first, then regression tests if smoke passes
+All tests are now in test_demo_app.py with pytest markers
 """
 
 import subprocess
@@ -17,10 +18,10 @@ def run_smoke_tests():
 
     result = subprocess.run([
         sys.executable, "-m", "pytest",
-        "test_smoke.py",
+        "test_demo_app.py",
         "-v",
         "-m", "smoke",
-        "--html=smoke_test_report.html",
+        "--html=demo_app_test_report.html",
         "--self-contained-html"
     ])
 
@@ -37,11 +38,31 @@ def run_regression_tests():
 
     result = subprocess.run([
         sys.executable, "-m", "pytest",
-        "test_regression.py",
+        "test_demo_app.py",
         "-v",
         "-m", "regression",
         "-n", "4",  # 4 parallel workers
-        "--html=regression_test_report.html",
+        "--html=demo_app_test_report.html",
+        "--self-contained-html"
+    ])
+
+    return result.returncode
+
+
+def run_all_tests():
+    """Run all tests (smoke + regression) in one go"""
+    print("\n" + "="*70)
+    print("🚀 RUNNING ALL TESTS (SMOKE + REGRESSION)")
+    print("="*70)
+    print("Running 20 tests with parallel execution...")
+    print("="*70 + "\n")
+
+    result = subprocess.run([
+        sys.executable, "-m", "pytest",
+        "test_demo_app.py",
+        "-v",
+        "-n", "4",  # 4 parallel workers
+        "--html=demo_app_test_report.html",
         "--self-contained-html"
     ])
 
@@ -50,6 +71,24 @@ def run_regression_tests():
 
 def main():
     """Main test execution flow"""
+    import sys
+
+    # Check if user wants to run all tests at once
+    if len(sys.argv) > 1 and sys.argv[1] == "--all":
+        result = run_all_tests()
+        print("\n" + "="*70)
+        print("📊 FINAL RESULTS")
+        print("="*70)
+        if result == 0:
+            print("✅ ALL TESTS PASSED! (5 Smoke + 15 Regression)")
+        else:
+            print("❌ SOME TESTS FAILED")
+        print("="*70)
+        print("\n📄 Test Report: demo_app_test_report.html")
+        print("="*70 + "\n")
+        sys.exit(result)
+
+    # Default: Run smoke first, then regression
     print("\n" + "="*70)
     print("🚀 AUTOMATED TEST SUITE EXECUTION")
     print("="*70)
@@ -82,18 +121,16 @@ def main():
     print("="*70)
 
     if regression_result == 0:
-        print("✅ Smoke Tests: PASSED")
-        print("✅ Regression Tests: PASSED")
+        print("✅ Smoke Tests: PASSED (5 tests)")
+        print("✅ Regression Tests: PASSED (15 tests)")
         print("\n🎉 ALL TESTS PASSED! Application is stable.")
     else:
-        print("✅ Smoke Tests: PASSED")
+        print("✅ Smoke Tests: PASSED (5 tests)")
         print("❌ Regression Tests: FAILED")
-        print("\n⚠️  Some regression tests failed. Check reports for details.")
+        print("\n⚠️  Some regression tests failed. Check report for details.")
 
     print("="*70)
-    print("\n📄 Test Reports Generated:")
-    print("  - smoke_test_report.html")
-    print("  - regression_test_report.html")
+    print("\n📄 Test Report: demo_app_test_report.html")
     print("="*70 + "\n")
 
     sys.exit(regression_result)

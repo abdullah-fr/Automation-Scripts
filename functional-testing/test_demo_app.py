@@ -535,5 +535,6 @@ if __name__ == "__main__":
         "-v",
         "-n", "4",  # Run tests in parallel with 4 workers
         "--html=demo_app_test_report.html",
-        "--self-contained-html"
+        "--self-contained-html",
+        "--css=assets/style.css"
     ])

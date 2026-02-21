@@ -22,7 +22,8 @@ def run_smoke_tests():
         "-v",
         "-m", "smoke",
         "--html=demo_app_test_report.html",
-        "--self-contained-html"
+        "--self-contained-html",
+        "--css=assets/style.css"
     ])
 
     return result.returncode
@@ -43,7 +44,8 @@ def run_regression_tests():
         "-m", "regression",
         "-n", "4",  # 4 parallel workers
         "--html=demo_app_test_report.html",
-        "--self-contained-html"
+        "--self-contained-html",
+        "--css=assets/style.css"
     ])
 
     return result.returncode
@@ -63,7 +65,8 @@ def run_all_tests():
         "-v",
         "-n", "4",  # 4 parallel workers
         "--html=demo_app_test_report.html",
-        "--self-contained-html"
+        "--self-contained-html",
+        "--css=assets/style.css"
     ])
 
     return result.returncode

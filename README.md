@@ -11,21 +11,23 @@ Automated testing for Brave Search using Selenium WebDriver with Python (pytest)
 │   ├── chrome.py
 │   ├── choose.py
 │   ├── search.py
-│   ├── logs.txt
-│   └── README.md
+│   └── logs.txt
 │
 ├── python-tests/              # Python test implementations
 │   ├── test_search_pytest.py  # Using pytest framework
 │   ├── test_search_manual.py  # Manual approach (no framework)
-│   ├── requirements.txt       # Python dependencies
-│   └── README.md
+│   └── requirements.txt       # Python dependencies
 │
 ├── java-tests/                # Java test implementations
 │   ├── src/test/java/
 │   │   └── BraveSearchTest.java
 │   ├── pom.xml               # Maven configuration
-│   ├── testng.xml            # TestNG suite config
-│   └── README.md
+│   └── testng.xml            # TestNG suite config
+│
+├── functional-testing/        # Demo login/signup app with tests
+│   ├── demo_app.py           # Flask web application
+│   ├── test_demo_app.py      # Automated tests (14 tests)
+│   └── templates/            # HTML templates
 │
 └── README.md                 # This file
 ```
@@ -122,20 +124,35 @@ mvn test -f java-tests/pom.xml
 
 ## 🎓 Learning Resources
 
-### Demo Login/Signup App
-We've included a proper demo application to practice automation:
+### Functional Testing Demo
+A complete login/signup application with automated tests:
 
 ```bash
-# Install Flask
-pip install flask
+# Terminal 1: Start the demo app
+cd functional-testing
+python3 demo_app.py
 
-# Run demo app
-python demo_app.py
+# Terminal 2: Run tests with HTML report
+cd functional-testing
+python3 test_demo_app.py
 
-# Run tests (in another terminal)
-python test_demo_app.py
+# View report
+open demo_app_test_report.html
 ```
 
-See [AUTOMATION_REALITY_CHECK.md](AUTOMATION_REALITY_CHECK.md) for why testing controlled environments is the professional approach.
+**Features:**
+- Flask-based web application
+- 14 comprehensive test cases
+- HTML test reports
+- Login/Signup validation
+- Professional test structure
 
-**Key Lesson:** Test systems you control, not production sites like Facebook. Our demo app provides 15 reliable, reproducible test cases.
+**Why this approach?**
+Testing systems you control provides reliable, reproducible results. This is how professional QA engineers work - not by automating production sites like Facebook, but by testing controlled environments.
+
+**Test Coverage:**
+- 6 Login tests (valid/invalid credentials, empty fields)
+- 6 Signup tests (validation, password strength, duplicates)
+- 2 Navigation tests
+
+All tests generate detailed HTML reports for documentation.

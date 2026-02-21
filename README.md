@@ -125,14 +125,14 @@ mvn test -f java-tests/pom.xml
 ## 🎓 Learning Resources
 
 ### Functional Testing Demo
-A complete login/signup application with comprehensive test suite including smoke and regression testing:
+A complete login/signup application with comprehensive test suite including smoke, regression, and data-driven testing:
 
 ```bash
 # Terminal 1: Start the demo app
 cd functional-testing
 python3 demo_app.py
 
-# Terminal 2: Run all tests (smoke + regression in parallel)
+# Terminal 2: Run all tests (smoke + regression + data-driven in parallel)
 cd functional-testing
 python3 test_demo_app.py
 
@@ -142,37 +142,56 @@ python3 run_all_tests.py --all    # Runs all tests at once
 
 # Run specific test types:
 pytest test_demo_app.py -m smoke       # Only smoke tests (5 tests)
-pytest test_demo_app.py -m regression  # Only regression tests (15 tests)
+pytest test_demo_app.py -m regression  # Only regression tests (52+ tests)
+pytest test_demo_app.py -m datadriven  # Only data-driven tests (37 tests)
 pytest test_demo_app.py -m login       # Only login tests
 pytest test_demo_app.py -m signup      # Only signup tests
+pytest test_demo_app.py -m validation  # Only validation tests
 ```
 
 **Features:**
 - Flask-based web application
-- 20 comprehensive tests in one file (test_demo_app.py)
+- 57+ comprehensive tests in one file (test_demo_app.py)
 - Smoke Testing: 5 critical path tests
-- Regression Testing: 15 comprehensive tests with parallel execution
+- Regression Testing: 15 comprehensive tests
+- Data-Driven Testing: 37+ parametrized tests with large datasets
 - Single unified HTML report (demo_app_test_report.html)
 - Professional test structure with explicit waits and pytest markers
+- Parallel execution with pytest-xdist (4 workers)
 
 **Test Organization:**
-1. **Smoke Tests** (@pytest.mark.smoke): Quick sanity checks
+
+1. **Smoke Tests** (@pytest.mark.smoke): Quick sanity checks (5 tests)
    - App is running
    - Login/Signup pages load
    - Valid login works
    - Navigation works
 
-2. **Regression Tests** (@pytest.mark.regression): Comprehensive coverage
+2. **Regression Tests** (@pytest.mark.regression): Comprehensive coverage (15 tests)
    - 6 Login tests (@pytest.mark.login)
    - 6 Signup tests (@pytest.mark.signup)
    - 3 Navigation tests (@pytest.mark.navigation)
    - Validation tests (@pytest.mark.validation)
-   - Parallel execution with 4 workers (pytest-xdist)
-   - Headless mode for speed
 
-3. **Master Runner** (run_all_tests.py): Flexible execution strategies
-   - Default: Runs smoke first, then regression if smoke passes
-   - --all flag: Runs all tests at once with parallel execution
+3. **Data-Driven Tests** (@pytest.mark.datadriven): Large dataset testing (37+ tests)
+   - 10 invalid login scenarios (empty fields, wrong passwords, invalid emails)
+   - 11 invalid signup scenarios (empty fields, mismatched passwords, existing emails)
+   - 5 valid signup scenarios (multiple user registrations)
+   - 5 password length validation tests (1-5 character passwords)
+   - 6 email format validation tests (various invalid email formats)
+   - Uses @pytest.mark.parametrize for data-driven approach
+
+**Test Data Sets:**
+- INVALID_LOGIN_DATA: 10 test cases
+- INVALID_SIGNUP_DATA: 11 test cases
+- VALID_SIGNUP_DATA: 5 test cases
+- PASSWORD_VALIDATION_DATA: 5 test cases
+- EMAIL_FORMAT_DATA: 6 test cases
+
+**Execution:**
+- All tests run in headless mode for speed
+- Parallel execution with 4 workers (pytest-xdist)
+- Single unified HTML report with all results
 
 **Why this approach?**
-Testing systems you control provides reliable, reproducible results. This is how professional QA engineers work - not by automating production sites, but by testing controlled environments with proper test strategies and markers for flexible execution.
+Testing systems you control provides reliable, reproducible results. Data-driven testing allows you to test multiple scenarios with minimal code duplication. This is how professional QA engineers work - using parametrized tests to cover edge cases efficiently.

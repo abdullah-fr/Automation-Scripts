@@ -33,6 +33,16 @@ jobs: # Setting up the JOB
       - name: Run Chrome Script
         run: python basic-scripts/chrome.py
 
+      - name: Run Brave Script
+        run: python basic-scripts/brave.py
+
+      - name: Run Choose Script
+        run: python basic-scripts/choose.py
+
+      - name: Run Search Script
+        run: python basic-scripts/search.py
+        continue-on-error: true
+
       - name: Run Python Tests - Manual
         run: python python-tests/test_search_manual.py
         continue-on-error: true

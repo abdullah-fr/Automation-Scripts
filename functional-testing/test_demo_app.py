@@ -22,9 +22,14 @@ def driver():
     """Setup and teardown browser"""
     options = webdriver.ChromeOptions()
     options.add_argument('--start-maximized')
-    # Removed headless mode so you can see the tests running
     options.add_argument('--disable-gpu')
     options.add_argument('--no-sandbox')
+
+    # Add headless mode for CI environment
+    import os
+    if os.getenv('CI'):
+        options.add_argument('--headless')
+        options.add_argument('--disable-dev-shm-usage')
 
     driver = webdriver.Chrome(options=options)
     driver.implicitly_wait(5)

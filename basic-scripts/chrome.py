@@ -20,10 +20,10 @@ try:
     assert "GitHub" in driver.title, "GitHub title not found"
     print(f"✓ Page title: {driver.title}")
 
-    # Test Case 2: Verify URL (intentionally failing)
+    # Test Case 2: Verify URL
     print("\nTest 2: Verifying URL...")
     current_url = driver.current_url
-    assert "google.com" in current_url, "Expected google.com but got different domain"
+    assert "github.com" in current_url, "Not on GitHub domain"
     print(f"✓ Current URL: {current_url}")
 
     # Test Case 3: Check page loaded (search for specific element)

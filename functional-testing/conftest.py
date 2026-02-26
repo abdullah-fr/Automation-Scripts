@@ -15,7 +15,7 @@ def pytest_configure(config):
     if hasattr(config, '_metadata'):
         config._metadata['Project'] = 'Demo App - Login/Signup Testing'
         config._metadata['Test Suite'] = 'Smoke + Regression + Data-Driven'
-        config._metadata['Tester'] = 'Automation Team'
+        config._metadata['Testerr'] = 'Automation Team'
         config._metadata['Environment'] = 'Local Development'
         config._metadata['Test Date'] = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 

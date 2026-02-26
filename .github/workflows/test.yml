@@ -1,4 +1,4 @@
-name: Chrome Script CI/CD
+name: Complete Test Suite CI/CD
 
 on: # Defining triggers
   push:
@@ -21,7 +21,7 @@ jobs: # Setting up the JOB
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install selenium
+          pip install selenium pytest pytest-html pytest-xdist flask
 
       - name: Install Chrome
         run: |
@@ -32,3 +32,38 @@ jobs: # Setting up the JOB
 
       - name: Run Chrome Script
         run: python basic-scripts/chrome.py
+
+      - name: Run Python Tests - Manual
+        run: python python-tests/test_search_manual.py
+        continue-on-error: true
+
+      - name: Run Python Tests - Pytest
+        run: pytest python-tests/test_search_pytest.py -v --html=python-tests/test-report.html --self-contained-html
+        continue-on-error: true
+
+      - name: Start Flask App
+        run: |
+          cd functional-testing
+          python demo_app.py &
+          sleep 5
+
+      - name: Run Functional Tests - Smoke
+        run: |
+          cd functional-testing
+          pytest test_demo_app.py -v -m smoke --html=smoke_test_report.html --self-contained-html
+
+      - name: Run Functional Tests - Regression
+        run: |
+          cd functional-testing
+          pytest test_demo_app.py -v -m regression --html=regression_test_report.html --self-contained-html
+        continue-on-error: true
+
+      - name: Upload Test Reports
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-reports
+          path: |
+            python-tests/test-report.html
+            functional-testing/smoke_test_report.html
+            functional-testing/regression_test_report.html

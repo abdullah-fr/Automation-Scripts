@@ -16,6 +16,7 @@ Automated testing for Brave Search using Selenium WebDriver with Python (pytest)
 ├── python-tests/              # Python test implementations
 │   ├── test_search_pytest.py  # Using pytest framework
 │   ├── test_search_manual.py  # Manual approach (no framework)
+│   ├── test-report.html       # HTML test report
 │   └── requirements.txt       # Python dependencies
 │
 ├── java-tests/                # Java test implementations
@@ -26,8 +27,17 @@ Automated testing for Brave Search using Selenium WebDriver with Python (pytest)
 │
 ├── functional-testing/        # Demo login/signup app with tests
 │   ├── demo_app.py           # Flask web application
-│   ├── test_demo_app.py      # Automated tests (14 tests)
-│   └── templates/            # HTML templates
+│   ├── test_demo_app.py      # Automated tests (57+ tests)
+│   ├── run_all_tests.py      # Master test runner
+│   ├── conftest.py           # Pytest configuration
+│   ├── pytest.ini            # Pytest settings
+│   ├── demo_app_test_report.html  # HTML test report
+│   ├── templates/            # HTML templates
+│   │   ├── login.html
+│   │   ├── signup.html
+│   │   └── dashboard.html
+│   └── assets/               # CSS and static files
+│       └── style.css
 │
 ├── API testing/               # API test automation
 │   ├── mock_server.py        # Flask mock API server
@@ -93,12 +103,37 @@ mvn test -f java-tests/pom.xml
 ### Python
 - Python 3.7+
 - pip package manager
+- Dependencies:
+  - selenium
+  - pytest
+  - pytest-html
+  - pytest-xdist (for parallel execution)
+  - requests (for API testing)
+  - flask (for demo apps and mock servers)
+  - openpyxl (for Excel file handling)
 
 ### Java
 - Java 11+
 - Maven 3.6+
 
-## 🔧 Requirements
+## � Installation
+
+### Python Setup
+```bash
+# Install Python dependencies for all projects
+pip install selenium pytest pytest-html pytest-xdist requests flask openpyxl
+
+# Or install from requirements files
+pip install -r python-tests/requirements.txt
+```
+
+### Java Setup
+```bash
+# Install Maven (macOS)
+brew install maven
+
+# Dependencies are managed by Maven (pom.xml)
+```
 
 ## 🎯 Which Framework to Use?
 
@@ -247,3 +282,33 @@ python3 setup_test_data.py     # Setup test data
 
 **Why API Testing?**
 API testing validates backend functionality independently of UI, enabling faster test execution and easier continuous integration. This approach mirrors real-world API testing workflows used in professional QA environments.
+
+## 🚀 CI/CD Integration
+
+This project includes GitHub Actions workflow for continuous testing:
+
+**Workflow Features:**
+- Triggers on push/pull request to main branch
+- Runs on Ubuntu latest
+- Automated test execution for:
+  - Basic scripts (chrome.py, brave.py, choose.py, search.py)
+  - Python manual tests
+  - Python pytest tests
+  - Functional testing (smoke + regression)
+- Generates HTML test reports
+- Uploads test artifacts for review
+
+**Workflow File:** `.github/workflows/test.yml`
+
+**View Results:**
+- Check the "Actions" tab in GitHub repository
+- Download test reports from workflow artifacts
+- Review test execution logs
+
+## 🤝 Contributing
+
+Feel free to fork this repository and submit pull requests. All tests will run automatically via GitHub Actions.
+
+## 📄 License
+
+This project is for educational purposes demonstrating various test automation approaches.

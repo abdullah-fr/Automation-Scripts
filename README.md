@@ -43,6 +43,8 @@ Automated testing for Brave Search using Selenium WebDriver with Python (pytest)
 │   ├── mock_server.py        # Flask mock API server
 │   ├── simple_post_test.py   # Simple POST request test
 │   ├── test_get_post.py      # GET request with assertions
+│   ├── test_status_code.py   # Status code validation test
+│   ├── test_parse_json.py    # JSON parsing and extraction test
 │   └── setup_test_data.py    # Test data setup utility
 │
 └── README.md                 # This file
@@ -249,6 +251,8 @@ python3 mock_server.py
 # Terminal 2: Run tests
 python3 simple_post_test.py    # Simple POST request
 python3 test_get_post.py       # GET with assertions
+python3 test_status_code.py    # Status code validation
+python3 test_parse_json.py     # JSON parsing
 python3 setup_test_data.py     # Setup test data
 ```
 
@@ -276,7 +280,17 @@ python3 setup_test_data.py     # Setup test data
    - Validates response fields
    - Python equivalent of Java REST Assured test
 
-4. **setup_test_data.py**: Test data utility
+4. **test_status_code.py**: Status code validation
+   - Extracts and validates HTTP status code
+   - Asserts status equals 200
+   - Python equivalent of Java REST Assured StatusCodeTest
+
+5. **test_parse_json.py**: JSON parsing and extraction
+   - Extracts specific fields from JSON response
+   - Validates "Courses" field is not null
+   - Python equivalent of Java REST Assured TestParseJson
+
+6. **setup_test_data.py**: Test data utility
    - Creates test students
    - Returns student IDs for testing
 

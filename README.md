@@ -29,6 +29,12 @@ Automated testing for Brave Search using Selenium WebDriver with Python (pytest)
 │   ├── test_demo_app.py      # Automated tests (14 tests)
 │   └── templates/            # HTML templates
 │
+├── API testing/               # API test automation
+│   ├── mock_server.py        # Flask mock API server
+│   ├── simple_post_test.py   # Simple POST request test
+│   ├── test_get_post.py      # GET request with assertions
+│   └── setup_test_data.py    # Test data setup utility
+│
 └── README.md                 # This file
 ```
 
@@ -195,3 +201,49 @@ pytest test_demo_app.py -m validation  # Only validation tests
 
 **Why this approach?**
 Testing systems you control provides reliable, reproducible results. Data-driven testing allows you to test multiple scenarios with minimal code duplication. This is how professional QA engineers work - using parametrized tests to cover edge cases efficiently.
+
+## 🔌 API Testing
+
+Comprehensive API testing framework with Python and requests library:
+
+```bash
+# Terminal 1: Start the mock API server
+cd "API testing"
+python3 mock_server.py
+
+# Terminal 2: Run tests
+python3 simple_post_test.py    # Simple POST request
+python3 test_get_post.py       # GET with assertions
+python3 setup_test_data.py     # Setup test data
+```
+
+**Features:**
+- Mock Flask API server for testing
+- POST request automation (create student data)
+- GET request with assertions (validate responses)
+- Response validation (status codes, JSON data)
+- Python equivalent of Java REST Assured tests
+
+**Test Scripts:**
+1. **mock_server.py**: Flask-based mock API server
+   - POST /studentdata - Create student
+   - GET /studentdata - Get all students
+   - GET /studentdata/:id - Get single student
+
+2. **simple_post_test.py**: Basic POST request test
+   - Creates student with name and courses
+   - Validates status code 201
+   - Prints formatted JSON response
+
+3. **test_get_post.py**: GET request with assertions
+   - Retrieves student data
+   - Asserts status code 200
+   - Validates response fields
+   - Python equivalent of Java REST Assured test
+
+4. **setup_test_data.py**: Test data utility
+   - Creates test students
+   - Returns student IDs for testing
+
+**Why API Testing?**
+API testing validates backend functionality independently of UI, enabling faster test execution and easier continuous integration. This approach mirrors real-world API testing workflows used in professional QA environments.

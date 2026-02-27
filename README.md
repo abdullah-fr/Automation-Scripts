@@ -45,6 +45,7 @@ Automated testing for Brave Search using Selenium WebDriver with Python (pytest)
 │   ├── test_get_post.py      # GET request with assertions
 │   ├── test_status_code.py   # Status code validation test
 │   ├── test_parse_json.py    # JSON parsing and extraction test
+│   ├── test_field_validations.py  # Field type and value validations
 │   └── setup_test_data.py    # Test data setup utility
 │
 └── README.md                 # This file
@@ -253,6 +254,7 @@ python3 simple_post_test.py    # Simple POST request
 python3 test_get_post.py       # GET with assertions
 python3 test_status_code.py    # Status code validation
 python3 test_parse_json.py     # JSON parsing
+python3 test_field_validations.py  # Field validations
 python3 setup_test_data.py     # Setup test data
 ```
 
@@ -290,7 +292,14 @@ python3 setup_test_data.py     # Setup test data
    - Validates "Courses" field is not null
    - Python equivalent of Java REST Assured TestParseJson
 
-6. **setup_test_data.py**: Test data utility
+6. **test_field_validations.py**: Field type and value validations
+   - Validates status code is 200
+   - Checks "name" field is a string (isinstance)
+   - Validates "Courses" field is not null
+   - Asserts "id" field is greater than 0
+   - Python equivalent of Java REST Assured testFieldValidations
+
+7. **setup_test_data.py**: Test data utility
    - Creates test students
    - Returns student IDs for testing
 

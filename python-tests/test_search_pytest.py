@@ -1,5 +1,6 @@
 # Import required libraries
 import pytest
+import os
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -10,7 +11,19 @@ from selenium.webdriver.support import expected_conditions as EC
 @pytest.fixture
 def driver():
     options = webdriver.ChromeOptions()
-    options.binary_location = "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
+
+    # Check if running in CI environment
+    if os.getenv('CI'):
+        # CI environment: use headless Chrome
+        options.add_argument('--headless')
+        options.add_argument('--no-sandbox')
+        options.add_argument('--disable-dev-shm-usage')
+        options.add_argument('--disable-gpu')
+    else:
+        # Local environment: try to use Brave Browser
+        brave_path = "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
+        if os.path.exists(brave_path):
+            options.binary_location = brave_path
 
     driver = webdriver.Chrome(options=options)
     driver.maximize_window()

@@ -414,10 +414,15 @@ This project includes GitHub Actions workflow for continuous testing:
 - Automated test execution for:
   - Basic scripts (chrome.py, brave.py, choose.py, search.py)
   - Python manual tests
-  - Python pytest tests
+  - Python pytest tests (uses Chrome in headless mode)
   - Functional testing (smoke + regression)
 - Generates HTML test reports
 - Uploads test artifacts for review
+- Auto-detects CI environment and uses appropriate browser
+
+**Environment Detection:**
+- Local: Uses Brave Browser if available, otherwise Chrome
+- CI/CD: Automatically uses headless Chrome with optimized flags
 
 **Workflow File:** `.github/workflows/test.yml`
 

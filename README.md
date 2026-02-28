@@ -40,15 +40,18 @@ Automated testing for Brave Search using Selenium WebDriver with Python (pytest)
 │       └── style.css
 │
 ├── API testing/               # API test automation
-│   ├── mock_server.py        # Flask mock API server
+│   ├── mock_server.py        # Flask mock API server (loads data from db.json)
+│   ├── db.json               # Initial test data for mock server
 │   ├── simple_post_test.py   # Simple POST request test
-│   ├── test_get_post.py      # GET request with assertions
+│   ├── test_get_post.py      # GET request with detailed output validation
 │   ├── test_status_code.py   # Status code validation test
 │   ├── test_parse_json.py    # JSON parsing and extraction test
 │   ├── test_field_validations.py  # Field type and value validations
 │   ├── test_response_time_logging.py  # Response time and logging test
 │   └── setup_test_data.py    # Test data setup utility
 │
+├── test_search_playwright.py # Playwright browser automation tests
+├── pytest.ini                # Pytest configuration (headed mode, slowmo)
 └── README.md                 # This file
 ```
 
@@ -102,6 +105,7 @@ mvn test -f java-tests/pom.xml
 ### Common
 - Brave Browser installed at: `/Applications/Brave Browser.app/Contents/MacOS/Brave Browser`
 - ChromeDriver (auto-managed by Selenium)
+- Chromium browser (auto-installed by Playwright)
 - Internet connection
 
 ### Python
@@ -112,6 +116,8 @@ mvn test -f java-tests/pom.xml
   - pytest
   - pytest-html
   - pytest-xdist (for parallel execution)
+  - pytest-playwright (for Playwright tests)
+  - playwright (browser automation)
   - requests (for API testing)
   - flask (for demo apps and mock servers)
   - openpyxl (for Excel file handling)
@@ -125,7 +131,10 @@ mvn test -f java-tests/pom.xml
 ### Python Setup
 ```bash
 # Install Python dependencies for all projects
-pip install selenium pytest pytest-html pytest-xdist requests flask openpyxl
+pip3 install selenium pytest pytest-html pytest-xdist pytest-playwright playwright requests flask openpyxl --break-system-packages
+
+# Install Playwright browsers
+python3 -m playwright install
 
 # Or install from requirements files
 pip install -r python-tests/requirements.txt
@@ -252,67 +261,137 @@ python3 mock_server.py
 
 # Terminal 2: Run tests
 python3 simple_post_test.py    # Simple POST request
-python3 test_get_post.py       # GET with assertions
+python3 test_get_post.py       # GET with detailed output validation
 python3 test_status_code.py    # Status code validation
 python3 test_parse_json.py     # JSON parsing
 python3 test_field_validations.py  # Field validations
 python3 test_response_time_logging.py  # Response time & logging
 python3 setup_test_data.py     # Setup test data
+
+# Or run with pytest
+pytest "API testing/test_get_post.py" -v -s
 ```
 
 **Features:**
-- Mock Flask API server for testing
+- Mock Flask API server for testing (loads initial data from db.json)
 - POST request automation (create student data)
-- GET request with assertions (validate responses)
+- GET request with detailed output validation and terminal printing
 - Response validation (status codes, JSON data)
+- Expected vs actual output comparison
 - Python equivalent of Java REST Assured tests
 
 **Test Scripts:**
 1. **mock_server.py**: Flask-based mock API server
+   - Loads initial data from db.json on startup
    - POST /studentdata - Create student
    - GET /studentdata - Get all students
    - GET /studentdata/:id - Get single student
 
-2. **simple_post_test.py**: Basic POST request test
+2. **db.json**: Initial test data
+   - Contains 3 students (Abdullah, Ali, Sara)
+   - Loaded automatically when server starts
+
+3. **simple_post_test.py**: Basic POST request test
    - Creates student with name and courses
    - Validates status code 201
    - Prints formatted JSON response
 
-3. **test_get_post.py**: GET request with assertions
+4. **test_get_post.py**: GET request with detailed validation
    - Retrieves student data
-   - Asserts status code 200
-   - Validates response fields
+   - Prints raw response text and formatted JSON
+   - Validates status code, ID, and name against expected values
+   - Shows response headers
+   - Compares actual vs expected output
    - Python equivalent of Java REST Assured test
 
-4. **test_status_code.py**: Status code validation
+5. **test_status_code.py**: Status code validation
    - Extracts and validates HTTP status code
    - Asserts status equals 200
    - Python equivalent of Java REST Assured StatusCodeTest
 
-5. **test_parse_json.py**: JSON parsing and extraction
+6. **test_parse_json.py**: JSON parsing and extraction
    - Extracts specific fields from JSON response
    - Validates "Courses" field is not null
    - Python equivalent of Java REST Assured TestParseJson
 
-6. **test_field_validations.py**: Field type and value validations
+7. **test_field_validations.py**: Field type and value validations
    - Validates status code is 200
    - Checks "name" field is a string (isinstance)
    - Validates "Courses" field is not null
    - Asserts "id" field is greater than 0
    - Python equivalent of Java REST Assured testFieldValidations
 
-7. **test_response_time_logging.py**: Response time and logging
+8. **test_response_time_logging.py**: Response time and logging
    - Measures API response time in milliseconds
    - Asserts response time is less than 2000ms
    - Logs response body as string
    - Python equivalent of Java REST Assured testResponseTimeandLogging
 
-8. **setup_test_data.py**: Test data utility
+9. **setup_test_data.py**: Test data utility
    - Creates test students
    - Returns student IDs for testing
 
 **Why API Testing?**
 API testing validates backend functionality independently of UI, enabling faster test execution and easier continuous integration. This approach mirrors real-world API testing workflows used in professional QA environments.
+
+## 🎭 Playwright Browser Automation
+
+Modern browser automation using Playwright (faster and more reliable than Selenium):
+
+```bash
+# Run Playwright tests (visible browser with slow motion)
+python3 -m pytest test_search_playwright.py -v
+
+# Run specific test
+python3 -m pytest test_search_playwright.py::test_complete_search_flow -v
+
+# Run in headless mode (fast)
+python3 -m pytest test_search_playwright.py -v --headed=false
+```
+
+**Features:**
+- **Modern automation**: Playwright is faster and more reliable than Selenium
+- **Visual feedback**: Dynamic element highlighting with different colors
+- **Slow motion**: Configurable speed (1000ms default) to watch tests execute
+- **Headed mode**: Browser window visible by default (configured in pytest.ini)
+- **Smart waits**: Built-in auto-waiting for elements
+- **Real search**: Searches for "mac repair shop" and opens first result
+
+**Test Coverage:**
+1. **test_navigate_to_brave_search**: Navigate to Brave Search homepage
+2. **test_search_box_exists**: Verify search box exists (highlighted in blue)
+3. **test_search_box_is_interactable**: Type text and verify (highlighted in green)
+4. **test_search_button_exists**: Verify search button exists (highlighted in orange)
+5. **test_complete_search_flow**: Complete end-to-end flow
+   - Highlights search box in purple
+   - Types "mac repair shop"
+   - Presses Enter to search
+   - Highlights first result in cyan
+   - Clicks and opens the website
+   - Displays opened URL
+
+**Configuration (pytest.ini):**
+- `--headed`: Shows browser window (set to false for headless)
+- `--slowmo=1000`: Slows down actions by 1 second for visibility
+- `--browser=chromium`: Uses Chromium (can also use firefox)
+
+**Why Playwright?**
+- Faster execution than Selenium
+- Better auto-waiting mechanisms
+- More reliable element detection
+- Modern API with cleaner syntax
+- Built-in support for multiple browsers
+- No need for browser drivers (auto-managed)
+
+**Playwright vs Selenium:**
+| Feature | Playwright | Selenium |
+|---------|-----------|----------|
+| Speed | ⚡ Faster | Slower |
+| Auto-waiting | ✅ Built-in | ⚠️ Manual |
+| Browser drivers | ✅ Auto-managed | ⚠️ Manual setup |
+| API | 🎯 Modern & clean | 📜 Traditional |
+| Multi-browser | ✅ Native | ⚠️ Requires setup |
+| Element highlighting | ✅ Easy | ⚠️ Complex |
 
 ## 🚀 CI/CD Integration
 

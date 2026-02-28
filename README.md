@@ -51,7 +51,8 @@ Automated testing for Brave Search using Selenium WebDriver with Python (pytest)
 │   └── setup_test_data.py    # Test data setup utility
 │
 ├── test_search_playwright.py # Playwright browser automation tests
-├── pytest.ini                # Pytest configuration (headed mode, slowmo)
+├── pytest.ini                # General pytest configuration
+├── playwright.ini            # Playwright-specific configuration
 └── README.md                 # This file
 ```
 
@@ -370,10 +371,20 @@ python3 -m pytest test_search_playwright.py -v --headed=false
    - Clicks and opens the website
    - Displays opened URL
 
-**Configuration (pytest.ini):**
+**Configuration:**
+- Use `playwright.ini` for Playwright-specific settings
 - `--headed`: Shows browser window (set to false for headless)
 - `--slowmo=1000`: Slows down actions by 1 second for visibility
 - `--browser=chromium`: Uses Chromium (can also use firefox)
+
+**Run with custom config:**
+```bash
+# Use playwright.ini configuration
+pytest -c playwright.ini test_search_playwright.py -v
+
+# Or pass options directly
+pytest test_search_playwright.py -v --headed --slowmo=1000 --browser=chromium
+```
 
 **Why Playwright?**
 - Faster execution than Selenium

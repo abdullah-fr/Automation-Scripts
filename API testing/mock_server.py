@@ -1,10 +1,22 @@
 from flask import Flask, request, jsonify
+import json
+import os
 
 app = Flask(__name__)
 
+# Load initial data from db.json
+def load_initial_data():
+    db_path = os.path.join(os.path.dirname(__file__), 'db.json')
+    try:
+        with open(db_path, 'r') as f:
+            data = json.load(f)
+            return data.get('studentdata', [])
+    except FileNotFoundError:
+        return []
+
 # In-memory storage
-students = []
-student_id_counter = 1
+students = load_initial_data()
+student_id_counter = len(students) + 1 if students else 1
 
 @app.route('/studentdata', methods=['POST'])
 def create_student():

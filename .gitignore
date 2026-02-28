@@ -37,3 +37,7 @@ Thumbs.db
 
 *.swp
 *.swo
+
+# Personal notes and prompts
+API testing/EXPLAIN_PROMPT.md
+cv.txt
